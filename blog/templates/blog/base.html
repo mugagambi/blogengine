@@ -1,34 +1,118 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 
-<html>
-    <head>
-        <title>HMTechnologies Blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
- <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-<div class="page-header">
-    {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-    <p class="top-menu">Welcome {{ user.username }}<small>(<a href="{% url 'logout' %}">Log Out</a></small></p>
-    {% else %}
-    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-    {% endif %}
-    <h1><a href="{% url 'blog.views.post_list' %}">HMtechnologies Blog</a></h1>
-    
-</div>
+<html lang="en">
 
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-       {% block content %}
-       {% endblock %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="portofolio site for humphrey mugambi">
+    <meta name="author" content="humphrey mugambi">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/freelancer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Humphrey -Full stack developer</title>
+  </head>
+  <body id="page-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class=" navbar-brand" href="#page-top">Humphrey Mugambi</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="hidden">
+                        <a
+                         href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a    href="{% url 'portfolio.views.index' %}">Home</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a  href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a   href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a  href="#contact">Contact</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a  href="{% url 'blog.views.post_list' %}">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
-</div>
-    </body>
-</html>
+        <!-- /.container-fluid -->
+    </nav>
+
+     {% block content %}
+       {% endblock %}
+    <footer class="text-center">
+                <div class="footer-above">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="footer-col col-md-4">
+                                <h3>Location</h3>
+                                <p>Nyeri View<br>Dedan Kimathi University of Technology<br>P.O Box 657-10100<br>NYERI,KENYA</p>
+                            </div>
+                            <div class="footer-col col-md-4">
+                                <h3>Around the Web</h3>
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-col col-md-4">
+                                <h3>LOOKING FOR A SOFTWARE DEVELOPER</h3>
+                                <p>Looking for a freelance web developer,web designer or data visualization expert <br>
+                                  click <a href="mailto:mugagambi@gmail.com?subject=Freelance Hiring"><button type="button" class="btn btn-success">here</button>
+                             </a>to hire me. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-below">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                Copyright &copy; Humphrey Mugambi 2016
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+  <script src="{% static 'js/jquery-1.12.3.min.js' %}">
+  </script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}">
+
+  </script>
+  </body>
+  </html>
